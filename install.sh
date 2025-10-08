@@ -30,25 +30,27 @@ install_theme(){
   sudo cp -v about/unifont.pf2 "$INSTALL_DIR/about/" || true
 
   HOSTNAME=$(hostname)
-  CPU=$(lscpu | grep 'Model name' | sed -E 's/.*: +//;s/^[ \t]+//')
+  CPU=$(
+    lscpu | awk -F: '/型号名称|Model name|Model|Hardware|Processor/ {sub(/^[ \t]+/, "", $2); print $2; exit}'
+  )
+  [ -n "$CPU" ] || CPU=$(uname -m)
   MEM=$(grep MemTotal /proc/meminfo | awk '{printf "%.1f GB", $2/1024/1024}')
   DISK=$(lsblk -d -o NAME,SIZE | grep -E '^sd' | awk '{print $1"("$2")"}' | paste -sd ", ")
 
   # main theme
-  sed "s/\$\$RES\$\$/$RES/g" theme.txt | sudo tee "$INSTALL_DIR/theme.txt" >/dev/null
+  sed 's/\$\$RES\$\$/'"$RES"'/g' theme.txt | sudo tee "$INSTALL_DIR/theme.txt" >/dev/null
 
   # about/theme.txt
-  if [ -f "about/theme.txt.in" ]; then
+  if [ -f "about/theme.txt" ]; then
     sed \
-      -e "s/\$\$RES\$\$/$RES/g" \
-      -e "s/\$\$HOSTNAME\$\$/$HOSTNAME/g" \
-      -e "s/\$\$CPU\$\$/$CPU/g" \
-      -e "s/\$\$MEM\$\$/$MEM/g" \
-      -e "s/\$\$DISK\$\$/$DISK/g" \
-      about/theme.txt.in | sudo tee "$INSTALL_DIR/about/theme.txt" >/dev/null
+      -e 's/\$\$RES\$\$/'"$RES"'/g' \
+      -e 's/\$\$HOSTNAME\$\$/'"$HOSTNAME"'/g' \
+      -e 's/\$\$CPU\$\$/'"$CPU"'/g' \
+      -e 's/\$\$MEM\$\$/'"$MEM"'/g' \
+      -e 's/\$\$DISK\$\$/'"$DISK"'/g' \
+      about/theme.txt | sudo tee "$INSTALL_DIR/about/theme.txt" >/dev/null
   fi
 
-  # 背景
   if [ -f "assets/deathstranding-$RES.png" ]; then
     sudo cp -v "assets/deathstranding-$RES.png" "$INSTALL_DIR/assets/deathstranding-$RES.png"
   else
@@ -75,7 +77,6 @@ submenu "About machine" {
 EOF
   sudo chmod +x "$ABOUT_SCRIPT"
 
-  # GRUB_THEME 设置
   if grep -q "^GRUB_THEME=" "$GRUB_CFG"; then
     sudo sed -i "s|^GRUB_THEME=.*|GRUB_THEME=\"$INSTALL_DIR/theme.txt\"|" "$GRUB_CFG"
   else

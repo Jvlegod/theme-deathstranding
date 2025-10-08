@@ -4,7 +4,6 @@
 desktop-image: "assets/about-$$RES$$.png"
 desktop-color: "#000000"
 
-# 标题
 + label {
   text = "GRUB Theme: Death Stranding"
   font = "unifont.pf2"
@@ -27,7 +26,6 @@ desktop-color: "#000000"
   align = "left"
 }
 
-# 系统信息
 + label {
   text = "Hostname: $$HOSTNAME$$"
   font = "unifont.pf2"
@@ -61,7 +59,6 @@ desktop-color: "#000000"
   align = "left"
 }
 
-# 底部提示
 + label {
   text = "Press ESC to return"
   font = "unifont.pf2"
