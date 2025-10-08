@@ -4,46 +4,71 @@
 desktop-image: "assets/about-$$RES$$.png"
 desktop-color: "#000000"
 
+# 标题
 + label {
   text = "GRUB Theme: Death Stranding"
   font = "unifont.pf2"
   color = "#e6e6e6"
-  top = 30%
+  top = 20%
   left = 55%
-  width = 35%
+  width = 40%
   height = 40
   align = "left"
 }
 
 + label {
-  text = "Resolution: 1920x1080"
+  text = "Resolution: $$RES$$"
   font = "unifont.pf2"
   color = "#cccccc"
-  top = 40%
+  top = 28%
   left = 55%
-  width = 35%
+  width = 40%
+  height = 40
+  align = "left"
+}
+
+# 系统信息
++ label {
+  text = "Hostname: $$HOSTNAME$$"
+  font = "unifont.pf2"
+  color = "#e6e6e6"
+  top = 38%
+  left = 55%
+  width = 40%
   height = 40
   align = "left"
 }
 
 + label {
-  text = "Design: Minimal Style"
+  text = "CPU: $$CPU$$"
   font = "unifont.pf2"
   color = "#cccccc"
-  top = 50%
+  top = 46%
   left = 55%
-  width = 35%
+  width = 40%
   height = 40
   align = "left"
 }
 
++ label {
+  text = "Memory: $$MEM$$"
+  font = "unifont.pf2"
+  color = "#cccccc"
+  top = 54%
+  left = 55%
+  width = 40%
+  height = 40
+  align = "left"
+}
+
+# 底部提示
 + label {
   text = "Press ESC to return"
   font = "unifont.pf2"
   color = "#ffd35a"
-  top = 85%
+  top = 90%
   left = 55%
-  width = 35%
+  width = 40%
   height = 40
   align = "left"
 }
