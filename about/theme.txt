@@ -1,0 +1,50 @@
+# About Theme Page
+# Author: Jvle
+
+desktop-image: "about-$$RES$$.png"
+desktop-color: "#000000"
+
++ label {
+  text = "GRUB Theme: Death Stranding"
+  font = "unifont.pf2"
+  color = "#e6e6e6"
+  top = 30%
+  left = 55%
+  width = 35%
+  height = 40
+  align = "left"
+}
+
++ label {
+  text = "Resolution: 1920x1080"
+  font = "unifont.pf2"
+  color = "#cccccc"
+  top = 40%
+  left = 55%
+  width = 35%
+  height = 40
+  align = "left"
+}
+
++ label {
+  text = "Design: Minimal Style"
+  font = "unifont.pf2"
+  color = "#cccccc"
+  top = 50%
+  left = 55%
+  width = 35%
+  height = 40
+  align = "left"
+}
+
++ label {
+  text = "Press ESC to return"
+  font = "unifont.pf2"
+  color = "#ffd35a"
+  top = 85%
+  left = 55%
+  width = 35%
+  height = 40
+  align = "left"
+}
+

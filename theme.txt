@@ -1,0 +1,57 @@
+# Death Stranding GRUB2 Theme
+# Author: Jvle
+
+desktop-image: "assets/deathstranding-$$RES$$.png"
+desktop-color: "#000000"
+
++ boot_menu {
+  left   = 50%
+  top    = 68%
+  width  = 44%
+  height = 26%
+
+  item_font = "unicode.pf2"
+  item_height = 32
+  item_padding = 8
+
+  item_color = "#e6e6e6"
+  item_background = "#000000"
+  item_border = "#444444"
+
+  selected_item_color = "#ffffff"
+  selected_item_background = "#000000"
+  selected_item_border = "#ffd35a"
+
+  item_shadow = "true"
+  selected_item_shadow = "true"
+
+  item_corners = 6
+
+  scrollbar = "true"
+  scrollbar_width = 6
+  scrollbar_color = "#aaaaaa"
+  scrollbar_thumb_color = "#ffd35a"
+}
+
++ progress_bar {
+  id = "__timeout__"
+  left   = 28%
+  top    = 64%
+  width  = 44%
+  height = 6
+  border_color = "#555555"
+  highlight_color = "#ffd35a"
+  fill_color = "#888888"
+}
+
++ label {
+  text = "Use ↑/↓ to select • Enter to boot • e to edit"
+  font = "unicode.pf2"
+  color = "#cccccc"
+  left = 30%
+  top = 96%
+  width = 40%
+  height = 24
+  align = "center"
+}
+
