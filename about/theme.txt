@@ -1,7 +1,7 @@
 # About Theme Page
 # Author: Jvle
 
-desktop-image: "about-$$RES$$.png"
+desktop-image: "assets/about-$$RES$$.png"
 desktop-color: "#000000"
 
 + label {
