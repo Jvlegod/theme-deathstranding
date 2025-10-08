@@ -3,6 +3,10 @@
 
 desktop-image: "assets/deathstranding-$$RES$$.png"
 desktop-color: "#000000"
+terminal-font: "Hack Regular 18"
+terminal-box: "terminal_*.png"
+message-font: "Hack Regular 18"
+message-color: "#eff0f1"
 
 + boot_menu {
   left   = 50%
@@ -10,28 +14,28 @@ desktop-color: "#000000"
   width  = 44%
   height = 26%
 
-  item_font = "unicode.pf2"
-  item_height = 32
-  item_padding = 8
+  menu_pixmap_style = "assets/boot_menu_*.png"
 
-  item_color = "#e6e6e6"
-  item_background = "#000000"
-  item_border = "#444444"
+  item_font = "Hack Regular 22"
+  # breeze inactive text color
+  item_color = "#7f8c8d"
+  item_height = 48
+  item_icon_space = 8
+  item_spacing = 5
+  item_padding = 5
 
-  selected_item_color = "#ffffff"
-  selected_item_background = "#000000"
-  selected_item_border = "#ffd35a"
+  selected_item_font = "Hack Regular 22"
+  selected_item_color= "#eff0f1"
+  selected_item_pixmap_style = "assets/select_*.png"
 
-  item_shadow = "true"
-  selected_item_shadow = "true"
+  icon_height = 48
+  icon_width = 48
 
-  item_corners = 6
-
-  scrollbar = "true"
-  scrollbar_width = 6
-  scrollbar_color = "#aaaaaa"
-  scrollbar_thumb_color = "#ffd35a"
+  scrollbar = true
+  scrollbar_width = 10
+  scrollbar_thumb = "assets/slider_*.png"
 }
+
 
 + progress_bar {
   id = "__timeout__"
